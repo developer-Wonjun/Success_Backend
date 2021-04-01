@@ -19,6 +19,9 @@ from django.views.generic import RedirectView
 from django.conf.urls import include
 from django.conf import settings
 from SuccessPJT import views
+from medicine.views import blog, posting
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +31,8 @@ urlpatterns = [
     path('accounts/signup', views.CreateUserView.as_view(), name='signup'),
     path('accounts/login/done', views.RegisterdView.as_view(), name= 'create_user_done'),
     path('accounts/password_resets/', views.pwreset, name='reset'),
+    path('medicine/', include('medicine.urls')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

@@ -1,16 +1,19 @@
-<h1>워드 카운트!</h1>
+{% extends 'base.html' %}
 
-<br><br>
-<form action="{% url 'new' %}">
-    <textarea cols="40" rows="10" name='fulltext'></textarea>
-    <br><br>
-    <input type="submit" value="count!" />
-</form>
+{% block content %}
 
-<br>
 
-{% for blog in blogs.all %}
-    <h1>{{ blog.title }}</h1>
-    <p>{{ blog.pub_date | date:"Y-m-d" }}</p>
-    <p>{{ blog.body }}<a href="{% url 'detail' blog.id %}">자세히 보기</a></p> 
-{% endfor %}
+      {% for blog in blogs.all %}
+      <div class="container"> 
+      <div class="card">
+        <div class="card-body">
+        <h1>{{ blog.title }}</h1>
+        <p>{{ blog.pub_date | date:"Y-m-d" }}</p>
+        <p>{{ blog.summary }}<a href="{% url 'detail' blog.id %}"> ...자세히 보기</a></p> 
+        </div>
+      </div>
+      </div>
+      <br>
+      {% endfor %}
+
+{% endblock %}

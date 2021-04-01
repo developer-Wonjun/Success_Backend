@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Posting!</title>
+    </head>
+    <body>
+        <h1>약품 정보 상세페이지</h1>
+        <p>{{post.postname}}</p><br>
+        {% if post.mainphoto %}
+            <img src = "{{ post.mainphoto.url }}" alt="" width ="200" height="200">
+            <br>
+        {% endif %}
+        <p>제조사 : {{post.company}}</p>
+        <p>효능 : {{post.efficacy}}</p>
+        <p>복용 방법 : {{post.way}}</p>
+        <p>주의사항 : {{post.precautions}}</p>
+
+        <a href="/medicine/blog/">목록</a>
+    </body>
+</html>

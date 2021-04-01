@@ -1,9 +1,16 @@
-<h1>detail page</h1>
+{% extends 'base.html' %}
 
+{% block content %}
 
-<h1>{{ blog.title }}</h1>
-<p>{{ blog.pub_date }}</p>
-<p>{{ blog.body }}</p>
+    <div class="container"> 
+        <div class="card">
+          <div class="card-body">
+            <h1>{{ blog.title }}</h1>
+            <p>{{ blog.pub_date }}</p>
+            <p>{{ blog.body }}</p> 
+          </div>
+        </div>
+        </div>
+        <br>
 
-
-<a href="{% url 'home' %}">돌아가기</a>
+{% endblock %}
