@@ -9,6 +9,7 @@ app_name='medicine'
 urlpatterns = [
     path('blog/', blog, name="blog"),
     path('blog/<int:pk>/', posting, name="posting"),
+    path('search', search, name='search'),
 ]
 
 

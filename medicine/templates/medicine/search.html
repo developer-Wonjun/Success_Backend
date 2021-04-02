@@ -35,32 +35,23 @@
         </div>
     </nav>
 
-    {% for list in posts %}
+    {% if not postlist %}
+    <h1>검색 결과가 없습니다.</h1>
+
+    {% else %}
+
+    {% for post in postlist.all %}
     <div class="container">
-        <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <p><a href="{{list.pk}}/">{{list.postname}}</a></p>
-                </div>
+        <div class="card">
+            <div class="card-body">
+                <p><a href="blog/{{post.pk}}/">{{post.postname}}</a></p>
+
+
             </div>
         </div>
     </div>
     <br>
     {% endfor %}
-
-    {% if posts.has_previous %}
-    <a href="?page=1">First</a>
-    <a href="?page={{posts.previous_page_number}}">Previous</a>
     {% endif %}
-
-    <span>{{posts.number}}</span>
-    <span>of</span>
-    <span>{{posts.paginator.num_pages}}</span>
-
-    {% if posts.has_next %}
-    <a href="?page={{posts.next_page_number}}">Next</a>
-    <a href="?page={{posts.paginator.num_pages}}">Last</a>
-    {% endif %}
-
 
 </body>
