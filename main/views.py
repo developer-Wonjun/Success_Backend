@@ -43,4 +43,23 @@ def new(request):
             # add to the dictionary
             word_dictionary[word] = 1
 
-    return render(request, 'new.html', {'fulltext': full_text, 'total': len(word_list), 'dictionary': word_dictionary.items()} ) 
+    return render(request, 'new.html', {'fulltext': full_text, 'total': len(word_list), 'dictionary': word_dictionary.items()} )
+
+
+def update(request, blog_id):
+    blog = Blog.objects.get(id=blog_id)
+
+    if request.method == "POST":
+        blog.title = request.POST['title']
+        blog.body = request.POST['body']
+        blog.pub_date = timezone.datetime.now()
+        blog.save()
+        return redirect('/main/community/' + str(blog.id))
+
+    else:
+        return render(request, 'update.html') 
+
+def delete(request, blog_id):
+    blog = Blog.objects.get(id=blog_id)
+    blog.delete()
+    return redirect('/main/community/')

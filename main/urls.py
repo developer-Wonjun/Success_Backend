@@ -12,4 +12,7 @@ urlpatterns = [
     path('main/community/create/', views.create, name='create'),
     path('main/community/postcreate/', views.postcreate, name='postcreate'),
     path('main/community/new/', views.new, name='new'),
+    path('main/update/<int:blog_id>', views.update, name='update'),
+    path('delete/<int:blog_id>/', views.delete, name='delete'),
+
 ]
