@@ -1,11 +1,18 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'start.css' %}">
+
+
 
 <li>안녕하세요 {{ user.get_username }}님</li>
-<a href="{% url 'logout' %}">로그아웃</a>
+<br>
+<a href="{% url 'logout' %}" class="logout">로그아웃</a>
+
+<img src="/media/main.png" width="60%" ><br>
 
 <ul>
-    <ol><a href="/medicine/blog/">약품 검색</a></ol>
-    <ol><a href="#">병원 지도</a></ol>
-    <ol><a href="#">복용시간 알람</a></ol>
-    <ol><a href="community">게시판</a></ol>
+    <ol><a href="/medicine/blog/" class="button">약품 검색</a></ol>
+    <ol><a href="#" class="button">병원 지도</a></ol>
+    <ol><a href="#" class="button">복용시간 알람</a></ol>
+    <ol><a href="community" class="button">게시판</a></ol>
 
 </ul>

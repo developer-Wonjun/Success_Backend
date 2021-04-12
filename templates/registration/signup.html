@@ -1,6 +1,15 @@
-<form method="post" action="{% url 'signup' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
+<style>
+    div{
+      display: table;
+      margin-left: auto;
+      margin-right: auto;
+    }
+</style>
+
+<div>
+    <form style="text-align: left; margin-left: 4rem;" method="post" action="{% url 'signup' %}">
+    <p>{% csrf_token %}</p>
+    <p>{{ form.as_p }}</p>
     <button type="submit">회원가입</button>
-</form>
-    
+    </form>
+</div>

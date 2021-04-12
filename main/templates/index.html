@@ -1,8 +1,13 @@
-<t><h1>식후 30분</h1></t>
+{% load static %}
 
+<link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
 
-<a href="{% url 'login' %}">로그인</a>
-<a href="{% url 'signup' %}">회원가입</a>
+<img src="media/main.png" width="60%" ><br>
+<br><br>
+<br>
+<a href="{% url 'login' %}" class=button>로그인</a>
+<a href="{% url 'signup' %}" class=button>회원가입</a>
+
 
 
 

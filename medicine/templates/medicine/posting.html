@@ -1,17 +1,23 @@
-{% extends 'base1.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
 <h1>{{ post.postname }}</h1>
 <p>{{post.postname}}</p><br>
 {% if post.mainphoto %}
 <img src="{{ post.mainphoto.url }}" alt="" width="200" height="200">
 <br>
 {% endif %}
-<p>제조사 : {{post.company}}</p>
-<p>효능 : {{post.efficacy}}</p>
-<p>복용 방법 : {{post.way}}</p>
-<p>주의사항 : {{post.precautions}}</p>
-
+<div style="text-align: left; margin-left: 11rem;">
+    <p>제조사 : {{post.company}}</p>
+    <p>효능 : {{post.efficacy}}</p>
+    <p>복용 방법 : {{post.way}}</p>
+    <p>주의사항 : {{post.precautions}}</p>
+</div>
 <a href="/medicine/blog/">목록</a>
 
 {% endblock %}

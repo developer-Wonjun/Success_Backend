@@ -1,6 +1,13 @@
-{% extends 'base1.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
+
+<form style="margin-left: 45rem;" class="form-inline my-2 my-lg-0" action="{% url 'medicine:search' %}" method="post">
+    {% csrf_token %}
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="{{q}}">
+    <button class="btn btn-dark" type="submit">검색</button>
+</form>
+<br>
 {% for list in posts %}
 <div class="container">
     <div class="container">

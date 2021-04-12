@@ -2,18 +2,21 @@
 
 {% block content %}
 
-    <div class="container"> 
-        <div class="card">
-          <div class="card-body">
-            <h1>{{ blog.title }}</h1>
-            <p>{{ blog.pub_date }}</p>
-            <p>{{ blog.body }}</p> 
-          </div>
-        </div>
-        </div>
-        <br>
-        <a href="{% url 'update' blog.id %}">수정하기</a>
-        <a href="{% url 'delete' blog.id %}">삭제하기</a>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h1>{{ blog.title }}</h1>
+      <p>{{ blog.pub_date }}</p>
+      <p>{{ blog.body }}</p>
+    </div>
+  </div>
+</div>
+<div style="display: table; margin-left: auto; margin-right: auto;">
+  <a href="{% url 'home' %}">목록</a>
+  <br>
+  <a href="{% url 'update' blog.id %}">수정하기</a>
+  <br>
+  <a href="{% url 'delete' blog.id %}">삭제하기</a>
 
-
+</div>
 {% endblock %}

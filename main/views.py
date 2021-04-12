@@ -28,7 +28,7 @@ def postcreate(request):
     blog.pub_date = timezone.datetime.now()
     blog.save()
     return redirect('/main/community/' + str(blog.id))
-
+    
 def new(request):
     full_text = request.GET['fulltext']
 

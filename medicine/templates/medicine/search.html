@@ -1,4 +1,4 @@
-{% extends 'base1.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
     {% if not postlist %}
@@ -19,5 +19,6 @@
     <br>
     {% endfor %}
     {% endif %}
+    <a href="{% url 'medicine:blog' %}">돌아가기</a>
 
 {% endblock %}
