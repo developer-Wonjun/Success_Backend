@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <meta charset="utf-8">
+    <title>Camera API</title>
+    <link rel="stylesheet" href="{% static 'camera.css' %}" type="text/css" media="screen">
+    
+</head>
+
+<body>
+<br>
+<br>
+<br>
+
+        <section class="main-content">
+            <p>사진을 등록하시오.</p>
+            
+            <p>
+                <input type="file" id="take-picture" accept="image/*">
+            </p>
+
+            <h2>미리보기</h2>
+            <p>
+                <img src="about:blank" alt="" id="show-picture">
+            </p>
+
+            <p id="error"></p>
+            <button class="btn btn-dark" type="submit">업로드</button>
+
+        </section>
+
+
+
+    <script src="/static/js/base.js"></script>
+
+</body>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<div style="margin-top: 5rem;">
+    <a href="{% url 'medicine:blog' %}">이름으로 검색</a> <br>
+    <a href="{% url 'medicine:camera' %}">이미지로 검색</a>
+
+</div>
+
+{% endblock %}

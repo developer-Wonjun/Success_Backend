@@ -5,6 +5,13 @@ from django.core.paginator import Paginator
 # index.html 페이지를 부르는 index 함수
 
 # blog.html 페이지를 부르는 blog 함수
+
+def main(request):
+    return render(request, 'medicine/main.html')
+
+def camera(request):
+    return render(request, 'medicine/camera.html')
+
 def blog(request):
     # 모든 Post를 가져와 postlist에 저장합니다
     postlist = Post.objects.order_by('-id')
