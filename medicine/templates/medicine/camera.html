@@ -6,7 +6,12 @@
     <meta charset="utf-8">
     <title>Camera API</title>
     <link rel="stylesheet" href="{% static 'camera.css' %}" type="text/css" media="screen">
-    
+    <style>
+        img {
+            height: 50%;
+            width: 50%;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,7 +28,7 @@
 
             <h2>미리보기</h2>
             <p>
-                <img src="about:blank" alt="" id="show-picture">
+                <img alt="" id="show-picture">
             </p>
 
             <p id="error"></p>
@@ -31,9 +36,9 @@
 
         </section>
 
+        <script src="/static/js/base.js"></script>
 
 
-    <script src="/static/js/base.js"></script>
 
 </body>
 {% endblock %}

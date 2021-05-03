@@ -67,3 +67,7 @@ def delete(request, blog_id):
     blog = Blog.objects.get(id=blog_id)
     blog.delete()
     return redirect('/main/community/')
+
+
+def alarm(request):
+    return render(request, 'alarm.html')

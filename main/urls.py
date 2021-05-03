@@ -13,5 +13,5 @@ urlpatterns = [
     path('main/community/new/', views.new, name='new'),
     path('main/update/<int:blog_id>', views.update, name='update'),
     path('delete/<int:blog_id>/', views.delete, name='delete'),
-
+    path('main/alarm/', views.alarm, name='alarm'),
 ]
