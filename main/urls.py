@@ -14,4 +14,5 @@ urlpatterns = [
     path('main/update/<int:blog_id>', views.update, name='update'),
     path('delete/<int:blog_id>/', views.delete, name='delete'),
     path('main/alarm/', views.alarm, name='alarm'),
+    path('main/map/', views.map, name='map'),
 ]
