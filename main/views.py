@@ -71,3 +71,6 @@ def delete(request, blog_id):
 
 def alarm(request):
     return render(request, 'alarm.html')
+
+def map(request):
+    return render(request, 'map.html')
