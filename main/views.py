@@ -74,3 +74,4 @@ def alarm(request):
 
 def map(request):
     return render(request, 'map.html')
+

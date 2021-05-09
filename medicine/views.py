@@ -1,7 +1,8 @@
 from django.shortcuts import render
 # View에 Model(Post 게시글) 가져오기
-from .models import Post
+from .models import Post, Photo
 from django.core.paginator import Paginator
+from django.views.generic import CreateView
 # index.html 페이지를 부르는 index 함수
 
 # blog.html 페이지를 부르는 blog 함수
@@ -40,3 +41,11 @@ def search(request):
     
     else:
         return render(request, 'medicine/search.html')
+
+
+def InsertPhoto(request):
+    form=Photo()
+    form.photo=request.FILES['image']
+    form.save()
+
+    return render(request, 'medicine/main.html')   

@@ -13,3 +13,8 @@ class Post(models.Model):
     # postname이 Post object 대신 나오기
     def __str__(self):
         return self.postname
+
+
+class Photo(models.Model):
+
+    photo = models.ImageField(upload_to='images/', blank=True, null=True)

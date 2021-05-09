@@ -23,7 +23,11 @@
             <p>사진을 등록하시오.</p>
             
             <p>
-                <input type="file" id="take-picture" accept="image/*">
+                <form id="take-picture" method="POST" action="{% url 'medicine:insert' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" name="image" multiple>
+                    <input type="submit" value="제출">
+                </form>            
             </p>
 
             <h2>미리보기</h2>
@@ -32,7 +36,6 @@
             </p>
 
             <p id="error"></p>
-            <button class="btn btn-dark" type="submit">업로드</button>
 
         </section>
 

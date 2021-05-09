@@ -12,6 +12,9 @@ urlpatterns = [
     path('blog/', blog, name="blog"),
     path('blog/<int:pk>/', posting, name="posting"),
     path('search', search, name='search'),
-]
+
+    path('insert/', InsertPhoto, name='insert')
+] 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
