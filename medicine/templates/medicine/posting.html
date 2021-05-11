@@ -4,15 +4,13 @@
 <br>
 <br>
 <br>
-<br>
-<br>
 <h1>{{ post.postname }}</h1>
 <p>{{post.postname}}</p><br>
 {% if post.mainphoto %}
 <img src="{{ post.mainphoto.url }}" alt="" width="200" height="200">
 <br>
 {% endif %}
-<div style="text-align: left; margin-left: 11rem;">
+<div style="text-align: left; margin-left: 5rem;">
     <p>제조사 : {{post.company}}</p>
     <p>효능 : {{post.efficacy}}</p>
     <p>복용 방법 : {{post.way}}</p>
