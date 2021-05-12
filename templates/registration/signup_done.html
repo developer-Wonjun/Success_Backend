@@ -1,3 +1,8 @@
-<h2>회원가입이 완료되었습니다. </h2>
+{% extends 'base1.html' %}
+{% block content %}
+<br><br><br>
+<h3>회원가입이 완료되었습니다. </h3>
 <br>
-<a href="{% url 'login'%}">로그인하기</a>
+<a style="color: blue;" href="{% url 'login'%}">로그인하기</a>
+
+{% endblock %}

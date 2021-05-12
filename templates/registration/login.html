@@ -1,4 +1,5 @@
-
+{% extends 'base1.html' %}
+{% block content %}
 
   {% if form.errors %}
     <p>일치하지 않는 사용자입니다.</p>
@@ -30,6 +31,7 @@
   </form>
 
   {# Assumes you setup the password_reset view in your URLconf #}
-  계정이 존재하지 않으신가요? <a href="{% url 'signup' %}">회원가입</a>
+  계정이 존재하지 않으신가요? <a style="color: blue;" href="{% url 'signup' %}">회원가입</a>
 
 
+{% endblock %}
