@@ -10,8 +10,6 @@ from django.views.generic import CreateView
 def main(request):
     return render(request, 'medicine/main.html')
 
-def camera(request):
-    return render(request, 'medicine/camera.html')
 
 def blog(request):
     # 모든 Post를 가져와 postlist에 저장합니다
