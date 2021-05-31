@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <br>
+        {{rs}}<br>
+        {% for list in post %}
+            {% if list.mainphoto %}
+            <img src="{{ list.mainphoto.url }}" alt="" width="200" height="200">
+            <br>
+            {% endif %}
+            <p>약품명 : {{list.postname}}</p>
+            <p>제조사 : {{list.company}}</p>
+            <p>효능 : {{list.efficacy}}</p>
+            <p>복용 방법 : {{list.way}}</p>
+            <p>주의사항 : {{list.precautions}}</p>
+        {% endfor %}
+    
+{% endblock %}

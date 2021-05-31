@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <meta charset="utf-8">
+    <title>Camera API</title>
+    <link rel="stylesheet" href="{% static 'camera.css' %}" type="text/css" media="screen">
+    <style>
+        img {
+            height: 50%;
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+<br>
+<br>
+<br>
+
+        <section class="main-content">
+            <p>사진을 등록하시오.</p>
+            
+            <p>
+                <form id="take-picture" method="POST" action="{% url 'medicine:insert' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" name="image" multiple>
+                    <input type="submit" value="제출">
+                </form>            
+            </p>
+
+            <h2>미리보기</h2>
+            <p>
+                <img alt="" id="show-picture">
+            </p>
+
+            <p id="error"></p>
+
+        </section>
+
+        <script src="/static/js/base.js"></script>
+
+
+
+</body>
+{% endblock %}
