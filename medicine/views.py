@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 # View에 Model(Post 게시글) 가져오기
 from .models import Post, Photo
 from django.core.paginator import Paginator
@@ -15,7 +16,7 @@ import os
 import matplotlib.pyplot as plt
 import glob
 import os.path
-
+import requests
 # index.html 페이지를 부르는 index 함수
 
 # blog.html 페이지를 부르는 blog 함수
@@ -75,6 +76,23 @@ def result(request):
     #     root = r'media/images/*.png'
     # else:
     #     root = '존재안함'
+    path = glob.glob(str(root))
+    img1 = path[0]   
+    response = requests.post(
+        'https://api.remove.bg/v1.0/removebg',
+        files={'image_file': open(img1, 'rb')},
+        data={'size': 'auto'},
+        headers={'X-Api-Key': 'khLZVZgJccbLm2DySqWjhN7v'},
+    )
+    if response.status_code == requests.codes.ok:
+        with open(str(root), 'wb') as out:
+            out.write(response.content)
+    else:
+        print("Error:", response.status_code, response.text)
+
+    path2 =(str(root))
+    img = cv2.imread(path2)
+
     path = glob.glob(str(root))
     img1 = path[0]
     img = cv2.imread(img1)
