@@ -82,7 +82,7 @@ def result(request):
         'https://api.remove.bg/v1.0/removebg',
         files={'image_file': open(img1, 'rb')},
         data={'size': 'auto'},
-        headers={'X-Api-Key': 'khLZVZgJccbLm2DySqWjhN7v'},
+        headers={'X-Api-Key': 'PH134FqrWUSimssiSyGnHaeA'},
     )
     if response.status_code == requests.codes.ok:
         with open(str(root), 'wb') as out:
