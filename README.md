@@ -1,4 +1,4 @@
-<h1>한서대학교 항공소프트웨어공학과 <strong>Success<strong>조 졸업 프로젝트</h1><br>
+<h1>한서대학교 항공소프트웨어공학과 <strong>Success<strong>조 졸업 프로젝트 </h1><br>
 애플리케이션 이름 : 식후 30분<br>
 <br>
 애플리케이션 기능 :<br>
