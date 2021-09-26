@@ -71,7 +71,7 @@ def result(request):
 
         root = r'media/images/*.jpg'
     else:
-        root = r'media/images/*.png'
+        root = r'media/images/*.PNG'
     # elif os.path.isfile(r'media/images/**/*.png'):
     #     root = r'media/images/*.png'
     # else:
@@ -82,7 +82,7 @@ def result(request):
         'https://api.remove.bg/v1.0/removebg',
         files={'image_file': open(img1, 'rb')},
         data={'size': 'auto'},
-        headers={'X-Api-Key': 'PH134FqrWUSimssiSyGnHaeA'},
+        headers={'X-Api-Key': 'ptCZx3qrSXY86os3MGCVPUe8'},
     )
     if response.status_code == requests.codes.ok:
         with open(str(root), 'wb') as out:
@@ -132,7 +132,7 @@ def result(request):
     list_x.append(arr)
     result = np.array(list_x)
 #load model
-    model = load_model('jong_s pill_s99.h5')
+    model = load_model('jong_s_pill_last_s91.h5')
     predictions = model.predict(result)
     rs = np.argmax(predictions)
 
