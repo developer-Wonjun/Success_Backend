@@ -67,7 +67,7 @@ def InsertPhoto(request):
 def result(request):
 # resize, mask 
     # if os.path.isfile(r'media/images/**/*.jpg'):
-    if glob.glob('media/images/*.jpg'):
+    if glob.glob('media/images/*.jpg').exists():
 
         root = r'media/images/*.jpg'
     else:
