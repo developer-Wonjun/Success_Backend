@@ -67,11 +67,11 @@ def InsertPhoto(request):
 def result(request):
 # resize, mask 
     # if os.path.isfile(r'media/images/**/*.jpg'):
-    if glob.glob('media/images/*.jpg').exists():
+    if glob.glob('media/images/*.jpg'):
 
         root = r'media/images/*.jpg'
     else:
-        root = r'media/images/*.PNG'
+        root = r'media/images/*.png'
     # elif os.path.isfile(r'media/images/**/*.png'):
     #     root = r'media/images/*.png'
     # else:
@@ -85,47 +85,19 @@ def result(request):
         headers={'X-Api-Key': 'ptCZx3qrSXY86os3MGCVPUe8'},
     )
     if response.status_code == requests.codes.ok:
-        with open(str(root), 'wb') as out:
+        with open('media/images/0.png', 'wb') as out:
             out.write(response.content)
     else:
         print("Error:", response.status_code, response.text)
+    img2 = r'media/images/0.png'
 
-    path2 =(str(root))
-    img = cv2.imread(path2)
+    img3 = cv2.imread(img2)
 
-    path = glob.glob(str(root))
-    img1 = path[0]
-    img = cv2.imread(img1)
-    img = cv2.resize(img,dsize=(676,369),interpolation=cv2.INTER_AREA)
-    mask = np.zeros(img.shape[:2], np.uint8)
-    bgdModel = np.zeros((1,65),np.float64)
-    fgdModel = np.zeros((1,65),np.float64)
-    rect = (0,0,700,350)
-    cv2.grabCut(img,mask,rect,bgdModel,fgdModel,5,cv2.GC_INIT_WITH_RECT)
-    mask2 = np.where((mask==2)|(mask==0),0,1).astype('uint8')
-    img = img*mask2[:,:,np.newaxis]
-# boundingbox  
-    small = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
-    grad = cv2.morphologyEx(small, cv2.MORPH_GRADIENT, kernel)
-    _, bw = cv2.threshold(grad, 0.0, 255.0, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (9, 1))
-    connected = cv2.morphologyEx(bw, cv2.MORPH_CLOSE, kernel)
-    contours, hierarchy = cv2.findContours(connected.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
-    mask = np.zeros(bw.shape, dtype=np.uint8)
-    for idx in range(len(contours)):
-        x, y, w, h = cv2.boundingRect(contours[idx])
-        mask[y:y+h, x:x+w] = 0
-        cv2.drawContours(mask, contours, idx, (255, 255, 255), -1)
-        r = float(cv2.countNonZero(mask[y:y+h, x:x+w])) / (w * h)
-        if r > 0.45 and w > 8 and h > 8:
-            cv2.rectangle(img, (x, y), (x+w-1, y+h-1), (0, 255, 0), 2) 
-# canny        
-    edge = cv2.Canny(img, 50, 250) 
-    resize_edge = cv2.resize(edge,dsize=(68,37),interpolation=cv2.INTER_AREA)
-    cv2.imwrite(str(root), resize_edge)
+# resize        
+    resize_img = cv2.resize(img3,dsize=(67,67),interpolation=cv2.INTER_AREA)
+    cv2.imwrite('media/images/1.png', resize_img)
 # np.list
-    mat = glob.glob(str(root))
+    mat = glob.glob('media/images/1.png')
     img = cv2.imread(mat[0])
     arr = np.array(img)
     list_x = []
